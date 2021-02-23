@@ -36,7 +36,7 @@ Beverage::type BeveragePreferenceServiceHandler::getBeverage(const BeverageType:
 	
 	int test = rand()%3;
     // randomly select a weather
-	if( btype == WeatherType::type::WARM)
+	if( btype == BeverageType::type::COLD)
 	{
 		if(test == 0)
 			return (Beverage::type::LEMONADE);
