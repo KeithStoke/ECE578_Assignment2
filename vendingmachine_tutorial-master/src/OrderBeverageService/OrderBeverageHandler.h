@@ -104,11 +104,11 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
 	try {
       beverage = beverage_client->getBeverage(beverageType);
     } catch (...) {
-      _beverage_client_pool->Push(beverage_client_wrapper);
+      _beverage_preference_client_pool->Push(beverage_client_wrapper);
       LOG(error) << "Failed to send call GetBeveragePreference to beverage-client";
       throw;
     }
-    _beverage_client_pool->Push(beverage_client_wrapper);
+    _beverage_preference_client_pool->Push(beverage_client_wrapper);
     
 	
 	
