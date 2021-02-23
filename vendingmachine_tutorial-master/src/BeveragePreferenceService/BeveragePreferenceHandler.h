@@ -16,8 +16,8 @@ namespace vending_machine{
 
 class BeveragePreferenceServiceHandler : public BeveragePreferenceServiceIf {
  public:
-  BeveragePreferenceeHandler();
-  ~BeveragePreferenceHandler() override=default;
+   BeveragePreferenceServiceHandler();
+  ~BeveragePreferenceServiceHandler() override=default;
   
   Beverage::type getBeverage(const BeverageType::type btype) override;
 };
@@ -29,7 +29,7 @@ BeveragePreferenceServiceHandler::BeveragePreferenceServiceHandler() {
 
 // Remote Procedure "PlaceOrder"
 
-Beverage::type getBeverage(const BeverageType::type btype) {
+Beverage::type BeveragePreferenceServiceHandler::getBeverage(const BeverageType::type btype) {
      // Your implementation goes here
      printf("GetBeveragePreference\n");
 
