@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
   ClientPool<ThriftClient<WeatherServiceClient>> weather_client_pool(
       "weather-service", weather_service_addr, weather_service_port, 0, 128, 1000);
 	  
-  ClientPool<ThriftClient<WeatherServiceClient>> beverage_client_pool(
+  ClientPool<ThriftClient<BeveragePreferenceServiceClient>> beverage_client_pool(
       "beverage-preference-service", beverage_service_addr, beverage_service_port, 0, 128, 1000);
 	  
 	  

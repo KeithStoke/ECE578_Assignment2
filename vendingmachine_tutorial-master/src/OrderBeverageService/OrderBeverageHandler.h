@@ -8,6 +8,7 @@
 
 #include "../../gen-cpp/OrderBeverageService.h"
 #include "../../gen-cpp/WeatherService.h"
+#include  "../../gen-cpp/BeveragePreferenceService.h"
 
 #include "../ClientPool.h"
 #include "../ThriftClient.h"
@@ -57,7 +58,7 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
     auto weather_client = weather_client_wrapper->GetClient();
 
 	 
-    auto beverage_client_wrapper = _beverage_client_pool->Pop();
+    auto beverage_client_wrapper = _beverage_preference_client_pool->Pop();
     if (!beverage_client_wrapper) {
       ServiceException se;
       se.errorCode = ErrorCode::SE_THRIFT_CONN_ERROR;
@@ -117,15 +118,15 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
    if(beverage == Beverage::type::CAPPUCCINO)
 	_return = "CAPPUCCINO";
    else if (beverage == Beverage::type::LATTE)
-	   _return = "LATTE"
+	   _return = "LATTE";
    else if (beverage == Beverage::type::ESPRESSO)
-	   _return = "ESPRESSO"
+	   _return = "ESPRESSO";
    else if (beverage == Beverage::type::LEMONADE)
-	   _return = "LEMONADE"
+	   _return = "LEMONADE";
    else if (beverage == Beverage::type::ICE_TEA)
-	   _return = "ICE_TEA"
+	   _return = "ICE_TEA";
    else if (beverage == Beverage::type::SODA)
-	   _return = "SODA"
+	   _return = "SODA";
  
 #endif
 }
