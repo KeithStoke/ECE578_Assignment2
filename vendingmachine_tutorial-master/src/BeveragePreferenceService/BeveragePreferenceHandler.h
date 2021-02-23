@@ -32,15 +32,27 @@ BeveragePreferenceServiceHandler::BeveragePreferenceServiceHandler() {
 Beverage::type BeveragePreferenceServiceHandler::getBeverage(const BeverageType::type btype) {
      // Your implementation goes here
      printf("GetBeveragePreference\n");
-
+	
+	
+	int test = rand()%3;
     // randomly select a weather
-	if( btype == WeatherType::type::COLD)
+	if( btype == WeatherType::type::WARM)
 	{
-		return (0 == rand()%3)? Beverage::type::LEMONADE : Beverage::type::ICE_TEA :Beverage::type::SODA;
-	}
+		if(test == 0)
+			return (Beverage::type::LEMONADE);
+		else if(test ==1)
+			return (Beverage::type::ICE_TEA);
+		else if(test ==2)
+			return(Beverage::type::SODA);
+	}	
 	else
 	{
-		return (0 == rand()%3)? Beverage::type::CAPPUCCINO : Beverage::type::LATTE :Beverage::type::ESPRESSO;
+		if(test == 0)
+			return (Beverage::type::CAPPUCCINO);
+		else if(test ==1)
+			return (Beverage::type::LATTE);
+		else if(test ==2)
+			return(Beverage::type::ESPRESSO);
 	}
 }
 
