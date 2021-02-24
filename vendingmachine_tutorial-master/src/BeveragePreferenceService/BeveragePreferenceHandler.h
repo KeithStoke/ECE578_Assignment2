@@ -58,10 +58,4 @@ Beverage::type BeveragePreferenceServiceHandler::getBeverage(const BeverageType:
 
 } // namespace vending_machine
 
-//Destructor
-BeveragePreferenceServiceHandler::~BeveragePreferenceServiceHandler()
-{
-	
-}
-
 #endif //VENDING_MACHINE_MICROSERVICES_WEATHERHANDLER_H
