@@ -98,11 +98,10 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
 		beverageType = BeverageType::type::HOT;
 	}
 	
-	//Default to CAPPUCCINO
-	Beverage::type beverage = Beverage::type::CAPPUCCINO;
+	
 	//RPC call to Get Beverage Preference
 	try {
-      beverage = beverage_client->getBeverage(beverageType);
+      beverage_client->getBeverage(_return,beverageType);
     } catch (...) {
       _beverage_preference_client_pool->Push(beverage_client_wrapper);
       LOG(error) << "Failed to send call GetBeveragePreference to beverage-client";
@@ -112,21 +111,7 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
     
 	
 	
-	
-	
-   // 3. business logic
-   if(beverage == Beverage::type::CAPPUCCINO)
-	_return = "CAPPUCCINO";
-   else if (beverage == Beverage::type::LATTE)
-	   _return = "LATTE";
-   else if (beverage == Beverage::type::ESPRESSO)
-	   _return = "ESPRESSO";
-   else if (beverage == Beverage::type::LEMONADE)
-	   _return = "LEMONADE";
-   else if (beverage == Beverage::type::ICE_TEA)
-	   _return = "ICE_TEA";
-   else if (beverage == Beverage::type::SODA)
-	   _return = "SODA";
+
  
 #endif
 }

@@ -19,7 +19,7 @@ class BeveragePreferenceServiceHandler : public BeveragePreferenceServiceIf {
    BeveragePreferenceServiceHandler();
   ~BeveragePreferenceServiceHandler() override=default;
   
-  Beverage::type getBeverage(const BeverageType::type btype) override;
+  void getBeverage(std::string& _return, const BeverageType::type btype) override;
 };
 
 // Constructor
@@ -29,39 +29,35 @@ BeveragePreferenceServiceHandler::BeveragePreferenceServiceHandler() {
 
 // Remote Procedure "PlaceOrder"
 
-Beverage::type BeveragePreferenceServiceHandler::getBeverage(const BeverageType::type btype) {
+void BeveragePreferenceServiceHandler::getBeverage(std::string& _return, const BeverageType::type btype) {
      // Your implementation goes here
      printf("GetBeveragePreference\n");
-	
 	
 	int test = rand()%3;
     // randomly select a weather
 	if( btype == BeverageType::type::COLD)
 	{
 		if(test == 0)
-			return (Beverage::type::LEMONADE);
+			_return = "Lemonade";
 		else if(test ==1)
-			return (Beverage::type::ICE_TEA);
+			_return = "Iced Tea";
 		else if(test ==2)
-			return(Beverage::type::SODA);
+			_return = "Soda";
 	}	
 	else
 	{
 		if(test == 0)
 			return (Beverage::type::CAPPUCCINO);
+			_return = "Cappuccino";
 		else if(test ==1)
-			return (Beverage::type::LATTE);
+			_return = "Latte";
 		else if(test ==2)
-			return(Beverage::type::ESPRESSO);
+			_return = "Espresso";
 	}
+	return;
 }
 
 } // namespace vending_machine
 
-//Destructor
-BeveragePreferenceServiceHandler::~BeveragePreferenceServiceHandler()
-{
-	
-}
 
 #endif //VENDING_MACHINE_MICROSERVICES_WEATHERHANDLER_H
