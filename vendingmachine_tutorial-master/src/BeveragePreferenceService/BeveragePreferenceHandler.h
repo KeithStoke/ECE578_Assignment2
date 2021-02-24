@@ -19,7 +19,7 @@ class BeveragePreferenceServiceHandler : public BeveragePreferenceServiceIf {
    BeveragePreferenceServiceHandler();
   ~BeveragePreferenceServiceHandler() override=default;
   
-  void getBeverage(std::string& _return, const BeverageType::type btype) override;
+  void getBeverage(std::string& _return, const BeverageType::type btype);
 };
 
 // Constructor
@@ -47,7 +47,6 @@ void BeveragePreferenceServiceHandler::getBeverage(std::string& _return, const B
 	else
 	{
 		if(test == 0)
-			return (Beverage::type::CAPPUCCINO);
 			_return = "Cappuccino";
 		else if(test ==1)
 			_return = "Latte";
