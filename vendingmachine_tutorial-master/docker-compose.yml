@@ -10,7 +10,7 @@ services:
     hostname: weather-service
     restart: always
     entrypoint: WeatherService
-  beveragepreference-service:
+  beverage-preference-service:
     image: kstokely/lab2:latest
     hostname: beverage-preference-service
     restart: always
