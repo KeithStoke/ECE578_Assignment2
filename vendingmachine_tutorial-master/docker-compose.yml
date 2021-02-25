@@ -12,7 +12,7 @@ services:
     entrypoint: WeatherService
   beveragepreference-service:
     image: kstokely/lab2:latest
-    hostname: beveragepreference-service
+    hostname: beverage-preference-service
     restart: always
     entrypoint: BeveragePreferenceService
   nginx-thrift:
