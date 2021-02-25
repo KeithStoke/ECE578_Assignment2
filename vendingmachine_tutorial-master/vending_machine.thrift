@@ -34,14 +34,7 @@ enum BeverageType{
 	COLD
 }
 
-enum Beverage{
-        CAPPUCCINO,
-        LATTE,
-        ESPRESSO,
-        LEMONADE,
-        ICE_TEA,
-        SODA
-}
+
 
 service OrderBeverageService{
 	string PlaceOrder(
@@ -55,7 +48,7 @@ service WeatherService{
 	)
 }
 service BeveragePreferenceService{
-        Beverage getBeverage(
+        string getBeverage(
                 1: BeverageType btype
         )
 }

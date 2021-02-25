@@ -98,17 +98,17 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
 		beverageType = BeverageType::type::HOT;
 	}
 	
-	
+	std::string beverageName = "DEFAULT";
 	//RPC call to Get Beverage Preference
 	try {
-      beverage_client->getBeverage(_return,beverageType);
+      beverage_client->getBeverage(beverageName,beverageType);
     } catch (...) {
       _beverage_preference_client_pool->Push(beverage_client_wrapper);
       LOG(error) << "Failed to send call GetBeveragePreference to beverage-client";
       throw;
     }
     _beverage_preference_client_pool->Push(beverage_client_wrapper);
-    
+    _return = beverageName;
 	
 	
 
